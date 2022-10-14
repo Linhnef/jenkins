@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { useApi } from "./hooks/useApi";
 // import { useAsync } from './libraries/use-async';
@@ -9,11 +9,9 @@ import { CircularProgress } from "@mui/material";
 import { useAsync } from "./libraries/use-async";
 import { MovieResponse } from "./services";
 import { Card } from "./components/Card";
-import { DynamicContext } from "./libraries/use-dynamic-context";
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 
 function App() {
-  const { setData,data } = useContext(DynamicContext);
   const api = useApi();
   const [page, setPage] = useState<number>(1);
   const { result, resolve } = useAsync<MovieResponse>(async () => {
